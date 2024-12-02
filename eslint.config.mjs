@@ -17,5 +17,10 @@ export default [
   { ignores: ["jest.config.js", "lib/*"] },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  { ...prettierConfig },
+  {
+    ...prettierConfig,
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ];
