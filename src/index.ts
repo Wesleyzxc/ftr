@@ -4,7 +4,7 @@ import { getUserInput } from "./input";
 
 const millisecondsPerSecond = 1000;
 
-function promptForSeconds(): void {
+const main = () => {
   rl.question(
     "Please input the amount of time in seconds between emitting numbers and their frequency\n",
     (answer: string) => {
@@ -12,7 +12,7 @@ function promptForSeconds(): void {
       if (isNaN(parsedAnswer) || parsedAnswer <= 0) {
         // TODO: consider edge case return
         console.log("Please enter a valid positive number.");
-        promptForSeconds();
+        main();
       } else {
         const frequencyInMilliseconds = parsedAnswer * millisecondsPerSecond;
 
@@ -23,6 +23,6 @@ function promptForSeconds(): void {
       }
     },
   );
-}
+};
 
-promptForSeconds();
+main();
