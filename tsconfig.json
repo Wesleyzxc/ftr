@@ -3,7 +3,7 @@
     "lib": ["ESNext", "dom"],
     "outDir": "lib",
     "removeComments": true,
-    "target": "ES2015",
+    "target": "ES2020",
     "module": "ESNext",
     "baseUrl": "./",
     "esModuleInterop": true,

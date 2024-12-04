@@ -1,6 +1,6 @@
 import { rl } from "./readline";
 import { frequencyMap, pauseTimer, printFrequency, resumeTimer } from "./timer";
-import { fibonacciSet } from "./fib";
+import { isFibonacci } from "./fib";
 
 type Command = "halt" | "resume" | "quit";
 
@@ -15,8 +15,8 @@ const quit = () => {
   rl.on("line", () => rl.close());
 };
 
-const alertFib = (input: number) => {
-  if (fibonacciSet.has(input)) {
+const alertFib = (input: bigint) => {
+  if (isFibonacci(input)) {
     console.log("!!! FIB !!!");
   }
 };
@@ -24,13 +24,12 @@ const alertFib = (input: number) => {
 export const getUserInput = () => {
   rl.question("Please enter the next number\n", (input: string) => {
     if (!isRecognisedCommand(input)) {
-      const number = Number.parseInt(input);
-
-      if (isNaN(number)) {
-        console.log(`Invalid command entered ${input}`);
-      } else {
-        alertFib(number);
+      try {
+        const number = BigInt(input);
+        alertFib(BigInt(input));
         frequencyMap.set(number, (frequencyMap.get(number) || 0) + 1);
+      } catch {
+        console.log(`Invalid command entered ${input}`);
       }
 
       getUserInput();

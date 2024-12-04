@@ -16,8 +16,8 @@ describe("timer", () => {
     });
 
     it("should print frequency with values", () => {
-      frequencyMap.set(5, 3);
-      frequencyMap.set(3, 3);
+      frequencyMap.set(5n, 3);
+      frequencyMap.set(3n, 3);
 
       printFrequency();
 
@@ -66,7 +66,7 @@ describe("timer", () => {
       jest.isolateModules(() => {
         const { setFrequency, startTimer, pauseTimer } = require("../timer");
         jest.useFakeTimers();
-        frequencyMap.set(5, 3);
+        frequencyMap.set(5n, 3);
         setFrequency(1000);
         startTimer();
 
@@ -82,7 +82,7 @@ describe("timer", () => {
       jest.isolateModules(() => {
         const { setFrequency, startTimer, pauseTimer } = require("../timer");
         jest.useFakeTimers();
-        frequencyMap.set(5, 3);
+        frequencyMap.set(5n, 3);
         setFrequency(1000);
         startTimer();
 

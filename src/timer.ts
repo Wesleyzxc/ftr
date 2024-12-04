@@ -2,7 +2,7 @@ let interval: NodeJS.Timeout;
 let isPaused: boolean = false;
 let frequencyInMilliseconds: number;
 
-export const frequencyMap: Map<number, number> = new Map();
+export const frequencyMap: Map<bigint, number> = new Map();
 
 export const printFrequency = () => {
   const frequencyString = Array.from(frequencyMap)
